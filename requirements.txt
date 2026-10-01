@@ -1,0 +1,10 @@
+torch>=2.3
+torchvision>=0.18
+transformers>=4.40
+numpy
+pandas
+scipy
+scikit-learn
+scikit-image
+matplotlib
+pillow
