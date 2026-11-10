@@ -4,8 +4,8 @@ robustness.py  (STEP 5)
 Stress-tests every trained deep model (every checkpoint in outputs/checkpoints).
 
   test            the normal test set (for reference)
-  test_tc         jellyfish + REAL underwater bags (TrashCan)    \  cross-dataset:
-  test_syn        jellyfish + SYNTHETIC bags on land (Kaggle)     /  does it work on the other bag source?
+  test_tc         jellyfish + REAL underwater bags (TrashCan)    |  cross-dataset:
+  test_syn        jellyfish + SYNTHETIC bags on land (Kaggle)     |  does it work on the other bag source?
   test_uw1/3/5    test images made to look further underwater (colour cast + haze + blur)
   test_bright     test images made darker (0.5, 0.75) or brighter (1.25, 1.5).
                   TrashCan bags are dark and jellyfish photos are bright, so a model that learned

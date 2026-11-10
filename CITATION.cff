@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code or refer to these results, please cite it as below."
+title: "Bag or Background? Diagnosing and Mitigating Source Shortcuts in Underwater Plastic-Bag vs. Jellyfish Classification"
+type: software
+authors:
+  - family-names: Datta
+    given-names: Namrata
+    affiliation: Auckland University of Technology
+  - family-names: Naimeen
+    given-names: Neesha
+    affiliation: Auckland University of Technology
+  - family-names: Thamilvanan
+    given-names: Banupriya
+    affiliation: Auckland University of Technology
+year: 2026
+repository-code: "https://github.com/NamrataDatta04/jellyfish-image-classification"
+url: "https://namratadatta04.github.io/jellyfish-image-classification/"
+license: MIT
+keywords:
+  - shortcut learning
+  - spurious correlations
+  - underwater imaging
+  - marine debris
+  - jellyfish
+  - deep feature reweighting
+  - worst-group accuracy
+  - computer vision

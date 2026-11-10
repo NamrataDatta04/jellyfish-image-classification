@@ -1,0 +1,12 @@
+best,other,only_best_correct,only_other_correct,p_value,significant_5pct
+vit_b_16 | aug=standard,efficientnet_b0 | aug=standard,6,6,1.0,False
+vit_b_16 | aug=standard,resnet50 | aug=standard,8,6,0.7905,False
+vit_b_16 | aug=standard,clip_linear_probe,11,5,0.2101,False
+vit_b_16 | aug=standard,vgg16 | aug=standard,26,7,0.0013,True
+vit_b_16 | aug=standard,clip_zeroshot_underwater,47,6,0.0,True
+vit_b_16 | aug=standard,tinycnn | scratch | aug=standard,57,3,0.0,True
+vit_b_16 | aug=standard,hog+svm,64,1,0.0,True
+vit_b_16 | aug=standard,hog+color+svm,94,5,0.0,True
+vit_b_16 | aug=standard,color+logreg,103,3,0.0,True
+vit_b_16 | aug=standard,pixels+logreg,99,1,0.0,True
+vit_b_16 | aug=standard,majority,61,0,0.0,True

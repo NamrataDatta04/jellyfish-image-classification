@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bag or Background? — live demo</title>
+<meta name="description" content="Try an underwater plastic-bag vs jellyfish classifier in your browser, before and after a shortcut fix (DFR).">
+<style>
+  :root {
+    --bg: #f6f7f5; --surface: #ffffff; --ink: #14201f; --ink-2: #4b5a58; --muted: #7b8886;
+    --line: #dde3e1; --accent: #0f6e78; --bag: #d9622b; --jelly: #2a78d6; --warn-bg: #fff6e8; --warn: #8a5300;
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1615; --surface: #172120; --ink: #e8efed; --ink-2: #b2c0bd; --muted: #87958f;
+      --line: #2a3735; --accent: #5cc4cc; --bag: #f08752; --jelly: #6aa7f0; --warn-bg: #2b2213; --warn: #f0c070; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 32px 16px 64px; }
+  header h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.01em; }
+  header p { margin: 0; color: var(--ink-2); max-width: 70ch; }
+  .tag { display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px; }
+  a { color: var(--accent); }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-top: 28px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+  .drop { border: 2px dashed var(--line); border-radius: 12px; aspect-ratio: 1 / 1; display: grid; place-items: center;
+    text-align: center; cursor: pointer; position: relative; overflow: hidden; background: var(--bg); }
+  .drop.over { border-color: var(--accent); }
+  .drop img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
+  .drop .hint { padding: 20px; color: var(--ink-2); }
+  .drop .hint strong { color: var(--ink); display: block; font-size: 1.05rem; margin-bottom: 4px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  button { font: inherit; font-size: .9rem; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    padding: 8px 12px; border-radius: 999px; cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { button.primary { color: #0f1615; } }
+  .result h2 { font-size: 1rem; margin: 0 0 2px; }
+  .result .sub { color: var(--muted); font-size: .85rem; margin: 0 0 12px; }
+  .verdict { font-size: 1.35rem; font-weight: 700; margin: 0 0 10px; min-height: 1.6em; }
+  .bar { display: grid; grid-template-columns: 96px 1fr 52px; align-items: center; gap: 10px; margin: 6px 0; font-size: .9rem; }
+  .track { height: 12px; background: var(--bg); border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+  .fill { height: 100%; width: 0; border-radius: 6px; transition: width .35s ease; }
+  .fill.bag { background: var(--bag); } .fill.jelly { background: var(--jelly); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+  .stack { display: grid; gap: 14px; align-content: start; }
+  .status { font-size: .88rem; color: var(--ink-2); margin-top: 10px; min-height: 1.4em; }
+  .note { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 10px 12px; font-size: .88rem; margin-top: 14px; }
+  section { margin-top: 40px; }
+  section h2 { font-size: 1.25rem; margin: 0 0 10px; }
+  section p, section li { color: var(--ink-2); max-width: 75ch; }
+  table { border-collapse: collapse; width: 100%; font-size: .92rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--ink-2); font-weight: 600; }
+  td.n, th.n { text-align: right; }
+  .table-wrap { overflow-x: auto; }
+  footer { margin-top: 48px; color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="tag">Live demo · runs in your browser</div>
+    <h1>Bag or Background?</h1>
+    <p>Sea turtles mistake plastic bags for jellyfish. This classifier tries not to. Upload an underwater photo and
+      compare a normally fine-tuned network with the same network after a <strong>shortcut fix</strong>
+      (last-layer retraining, DFR). Your image never leaves your device.</p>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <label class="drop" id="drop" for="file">
+        <div class="hint" id="hint"><strong>Drop an image here</strong>or click to choose a photo (JPG / PNG)</div>
+      </label>
+      <input type="file" id="file" accept="image/*" hidden>
+      <div class="row">
+        <button class="primary" id="pick">Choose image</button>
+        <button id="bg-rov" title="A dark, murky deep-sea background with no object in it">Empty deep-sea background</button>
+        <button id="bg-clear" title="A clear blue-water background with no object in it">Empty clear-water background</button>
+      </div>
+      <div class="status" id="status">Loading model (about 16 MB, first visit only)…</div>
+    </div>
+
+    <div class="stack">
+      <div class="card result" id="res-erm">
+        <h2>Standard fine-tuning</h2>
+        <p class="sub">EfficientNet-B0, ImageNet-pretrained, fine-tuned as usual</p>
+        <p class="verdict">—</p>
+        <div class="bar"><span>Plastic bag</span><div class="track"><div class="fill bag"></div></div><span class="num">–</span></div>
+        <div class="bar"><span>Jellyfish</span><div class="track"><div class="fill jelly"></div></div><span class="num">–</span></div>
+      </div>
+      <div class="card result" id="res-dfr">
+        <h2>After the DFR fix</h2>
+        <p class="sub">Same network; last layer retrained on a group-balanced set</p>
+        <p class="verdict">—</p>
+        <div class="bar"><span>Plastic bag</span><div class="track"><div class="fill bag"></div></div><span class="num">–</span></div>
+        <div class="bar"><span>Jellyfish</span><div class="track"><div class="fill jelly"></div></div><span class="num">–</span></div>
+      </div>
+      <div class="note">The model only knows two classes. Any other image (a fish, a person, a cat) is still
+        forced into “plastic bag” or “jellyfish”.</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>What to try</h2>
+    <ul>
+      <li><strong>Click “Empty deep-sea background”.</strong> There is nothing in the picture, but the training bags were
+        all filmed by deep-sea robots, so the dark, murky water alone pushes the model towards “plastic bag”.</li>
+      <li><strong>Click “Empty clear-water background”.</strong> Clear blue water looks like the jellyfish photos, so it pulls
+        towards “jellyfish”.</li>
+      <li><strong>Upload a plastic bag in clear or bright water.</strong> This is the case the standard model gets wrong most
+        often; the DFR version is right far more often.</li>
+    </ul>
+    <p>This is the <em>source shortcut</em> the project measures: in every public dataset we could combine, bags and
+      jellyfish come from different cameras and different water, so a network can score highly by recognising the
+      background instead of the object.</p>
+  </section>
+
+  <section>
+    <h2>How this model scores on the background benchmark</h2>
+    <p>Accuracy on held-out test images where the object and the background are mixed and matched (seed 813).
+      “Worst group” is the lowest of the first four rows.</p>
+    <div class="table-wrap"><table id="acc">
+      <thead><tr><th>Test group</th><th class="n">Images</th><th class="n">Standard</th><th class="n">After DFR</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>About</h2>
+    <p>Part of <em>Bag or Background? Diagnosing and Mitigating Source Shortcuts in Underwater Plastic-Bag vs. Jellyfish
+      Classification</em> by Namrata Datta, Neesha Naimeen and Banupriya Thamilvanan (Auckland University of Technology, 2026).
+      Code, results and method: <a href="https://github.com/NamrataDatta04/jellyfish-image-classification">GitHub repository</a>.</p>
+    <p>The network runs on your device with ONNX Runtime Web. A research demo only: it is not suitable for
+      real monitoring, and the model weights are for non-commercial research use (see the repository licence).</p>
+  </section>
+
+  <footer>© 2026 the authors · Demo model: EfficientNet-B0, binary task, seed 813</footer>
+</main>
+
+<canvas id="work" width="224" height="224" hidden></canvas>
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/ort.min.js"></script>
+<script>
+(() => {
+  const ORT_BASE = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/";
+  const $ = (id) => document.getElementById(id);
+  const statusEl = $("status");
+  let session = null, heads = null, busy = false, pending = null;
+
+  const LABELS = {
+    bag_rov: "Bag, deep-sea robot video (real)", bag_clear: "Bag pasted on clear blue water",
+    jelly_clear: "Jellyfish, clear-water photo (real)", jelly_rov: "Jellyfish pasted on deep-sea background",
+    bag_gray: "Bag on plain grey", jelly_gray: "Jellyfish on plain grey", jelly_insitu: "Jellyfish filmed by robots (FathomNet)"
+  };
+
+  function setStatus(t) { statusEl.textContent = t; }
+
+  async function init() {
+    try {
+      ort.env.wasm.wasmPaths = window.ORT_WASM_PATHS || ORT_BASE;
+      ort.env.wasm.numThreads = 1;
+      const [s, h] = await Promise.all([
+        ort.InferenceSession.create("model/features.onnx", { executionProviders: ["wasm"] }),
+        fetch("model/heads.json").then((r) => r.json())
+      ]);
+      session = s; heads = h;
+      fillTable(h.benchmark_test_accuracy || []);
+      setStatus("Model ready. Choose an image or try an empty background.");
+      if (pending) { const p = pending; pending = null; classify(p); }
+    } catch (e) {
+      console.error(e);
+      setStatus("Could not load the model: " + e.message);
+    }
+  }
+
+  function fillTable(rows) {
+    const tb = document.querySelector("#acc tbody");
+    tb.innerHTML = "";
+    const pct = (v) => (100 * v).toFixed(0) + "%";
+    for (const r of rows) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${LABELS[r.group] || r.group}</td><td class="n">${r.n}</td>` +
+        `<td class="n">${pct(r.standard)}</td><td class="n">${pct(r.dfr)}</td>`;
+      tb.appendChild(tr);
+    }
+  }
+
+  function toTensor(source) {
+    const size = heads.input.size, mean = heads.input.mean, std = heads.input.std;
+    const c = $("work"); c.width = size; c.height = size;
+    const ctx = c.getContext("2d", { willReadFrequently: true });
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(source, 0, 0, size, size);          // squash to 224 x 224, as in training
+    const px = ctx.getImageData(0, 0, size, size).data;
+    const n = size * size, data = new Float32Array(3 * n);
+    for (let i = 0; i < n; i++) {
+      for (let ch = 0; ch < 3; ch++) data[ch * n + i] = (px[4 * i + ch] / 255 - mean[ch]) / std[ch];
+    }
+    return new ort.Tensor("float32", data, [1, 3, size, size]);
+  }
+
+  const dot = (w, f) => { let s = 0; for (let i = 0; i < f.length; i++) s += w[i] * f[i]; return s; };
+
+  function show(id, pBag, pJelly) {
+    const card = $(id);
+    const fills = card.querySelectorAll(".fill"), nums = card.querySelectorAll(".num");
+    fills[0].style.width = (100 * pBag).toFixed(1) + "%";
+    fills[1].style.width = (100 * pJelly).toFixed(1) + "%";
+    nums[0].textContent = (100 * pBag).toFixed(0) + "%";
+    nums[1].textContent = (100 * pJelly).toFixed(0) + "%";
+    card.querySelector(".verdict").textContent = pBag >= pJelly ? "Plastic bag" : "Jellyfish";
+  }
+
+  async function classify(source) {
+    if (!session) { pending = source; setStatus("Still loading the model…"); return; }
+    if (busy) return;
+    busy = true; setStatus("Classifying…");
+    try {
+      const t0 = performance.now();
+      const out = await session.run({ image: toTensor(source) });
+      const f = out.features.data;
+      const z0 = dot(heads.erm.weight[0], f) + heads.erm.bias[0];
+      const z1 = dot(heads.erm.weight[1], f) + heads.erm.bias[1];
+      const m = Math.max(z0, z1), e0 = Math.exp(z0 - m), e1 = Math.exp(z1 - m);
+      show("res-erm", e0 / (e0 + e1), e1 / (e0 + e1));
+      const pJ = 1 / (1 + Math.exp(-(dot(heads.dfr.weight, f) + heads.dfr.bias)));
+      show("res-dfr", 1 - pJ, pJ);
+      document.body.dataset.done = "1";
+      setStatus(`Done in ${Math.round(performance.now() - t0)} ms.`);
+    } catch (e) {
+      console.error(e); setStatus("Something went wrong: " + e.message);
+    } finally { busy = false; }
+  }
+
+  function showPreview(src) {
+    const drop = $("drop");
+    let img = drop.querySelector("img");
+    if (!img) { img = document.createElement("img"); img.alt = "Selected image"; drop.appendChild(img); }
+    img.src = src;
+    $("hint").style.visibility = "hidden";
+  }
+
+  function loadFile(file) {
+    if (!file || !file.type.startsWith("image/")) { setStatus("Please choose an image file."); return; }
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => { showPreview(url); classify(img); };
+    img.onerror = () => setStatus("This image could not be read.");
+    img.src = url;
+  }
+
+  // Object-free backgrounds drawn on the fly (no dataset images are shipped with the demo).
+  function makeBackground(kind) {
+    const c = document.createElement("canvas"); c.width = c.height = 448;
+    const ctx = c.getContext("2d");
+    let seed = kind === "rov" ? 7 : 11;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    if (kind === "rov") {
+      const g = ctx.createRadialGradient(224, 200, 40, 224, 224, 330);
+      g.addColorStop(0, "#4d6b63"); g.addColorStop(0.6, "#33504a"); g.addColorStop(1, "#18292a");
+      ctx.fillStyle = g; ctx.fillRect(0, 0, 448, 448);
+      for (let i = 0; i < 260; i++) {           // marine snow
+        ctx.fillStyle = `rgba(200,220,210,${0.08 + 0.25 * rnd()})`;
+        ctx.beginPath(); ctx.arc(448 * rnd(), 448 * rnd(), 0.6 + 1.8 * rnd(), 0, 7); ctx.fill();
+      }
+      ctx.filter = "blur(1.2px)"; ctx.drawImage(c, 0, 0); ctx.filter = "none";
+    } else {
+      const g = ctx.createLinearGradient(0, 0, 0, 448);
+      g.addColorStop(0, "#5fb4f2"); g.addColorStop(0.55, "#1f6fd1"); g.addColorStop(1, "#0b2f8f");
+      ctx.fillStyle = g; ctx.fillRect(0, 0, 448, 448);
+      for (let i = 0; i < 40; i++) {            // soft light ripples
+        ctx.strokeStyle = `rgba(255,255,255,${0.03 + 0.06 * rnd()})`; ctx.lineWidth = 2 + 6 * rnd();
+        ctx.beginPath(); const y = 200 * rnd();
+        ctx.moveTo(0, y); ctx.bezierCurveTo(150, y + 40 * rnd(), 300, y - 40 * rnd(), 448, y + 20 * rnd()); ctx.stroke();
+      }
+    }
+    showPreview(c.toDataURL("image/png"));
+    classify(c);
+  }
+
+  $("pick").addEventListener("click", (e) => { e.preventDefault(); $("file").click(); });
+  $("file").addEventListener("change", (e) => loadFile(e.target.files[0]));
+  $("bg-rov").addEventListener("click", () => makeBackground("rov"));
+  $("bg-clear").addEventListener("click", () => makeBackground("clear"));
+  const drop = $("drop");
+  ["dragenter", "dragover"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+  ["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
+  drop.addEventListener("drop", (e) => loadFile(e.dataTransfer.files[0]));
+  document.addEventListener("paste", (e) => {
+    const item = [...(e.clipboardData?.items || [])].find((i) => i.type.startsWith("image/"));
+    if (item) loadFile(item.getAsFile());
+  });
+
+  init();
+})();
+</script>
+</body>
+</html>

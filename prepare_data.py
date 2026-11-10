@@ -334,7 +334,9 @@ def figure_balance(df, bal):
         ax.set_xticks(x, names, rotation=30, ha="right")
         ax.set_ylabel("images")
         ax.set_title(f"{task} task — train imbalance ratio {bal[task]['train']['imbalance_ratio']:.1f} : 1")
-        ax.legend(fontsize=8)
+        top = max(max(bal[task][s]["counts"].values()) for s in ["train", "val", "test"])
+        ax.set_ylim(0, top * 1.45)                       # leave room so the legend does not cover a bar
+        ax.legend(fontsize=8, loc="upper right", ncol=2)
     fig.suptitle("Class balance (plastic bags = TrashCan crops)")
     fig.tight_layout(); fig.savefig(C.FIG_DIR / "data_class_balance.png", dpi=150); plt.close(fig)
 

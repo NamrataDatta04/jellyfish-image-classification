@@ -1,0 +1,22 @@
+\midrule \multicolumn{10}{l}{\textit{Fine-tuned networks (ERM)}} \\
+TinyCNN & 1 & 0.91 & 0.84 & 0.02 & 0.99 & 0.26 & \textbf{0.02} & 0.84 & 0.84 \\
+VGG16 & 1 & 0.99 & 0.99 & 0.04 & 1.00 & 0.98 & \textbf{0.04} & 0.90 & 0.83 \\
+ResNet-50 & 3 & 0.94{\scriptsize$\pm$0.05} & 0.89{\scriptsize$\pm$0.10} & 0.30{\scriptsize$\pm$0.10} & 1.00{\scriptsize$\pm$0.00} & 1.00{\scriptsize$\pm$0.00} & \textbf{0.30{\scriptsize$\pm$0.10}} & 0.97{\scriptsize$\pm$0.05} & 0.81{\scriptsize$\pm$0.01} \\
+EfficientNet-B0 & 3 & 0.98{\scriptsize$\pm$0.02} & 0.97{\scriptsize$\pm$0.04} & 0.59{\scriptsize$\pm$0.10} & 1.00{\scriptsize$\pm$0.00} & 0.96{\scriptsize$\pm$0.02} & \textbf{0.59{\scriptsize$\pm$0.10}} & 0.99{\scriptsize$\pm$0.01} & 0.79{\scriptsize$\pm$0.03} \\
+ViT-B/16 & 3 & 0.94{\scriptsize$\pm$0.05} & 0.89{\scriptsize$\pm$0.09} & 0.41{\scriptsize$\pm$0.37} & 1.00{\scriptsize$\pm$0.00} & 0.97{\scriptsize$\pm$0.02} & \textbf{0.41{\scriptsize$\pm$0.37}} & 0.91{\scriptsize$\pm$0.08} & 0.88{\scriptsize$\pm$0.03} \\
+\midrule \multicolumn{10}{l}{\textit{+ underwater augmentation (ERM)}} \\
+ResNet-50 & 3 & 0.90{\scriptsize$\pm$0.01} & 0.80{\scriptsize$\pm$0.03} & 0.12{\scriptsize$\pm$0.02} & 1.00{\scriptsize$\pm$0.00} & 0.99{\scriptsize$\pm$0.01} & \textbf{0.12{\scriptsize$\pm$0.02}} & 0.96{\scriptsize$\pm$0.05} & 0.87{\scriptsize$\pm$0.03} \\
+EfficientNet-B0 & 3 & 0.95{\scriptsize$\pm$0.04} & 0.90{\scriptsize$\pm$0.07} & 0.28{\scriptsize$\pm$0.16} & 1.00{\scriptsize$\pm$0.00} & 0.96{\scriptsize$\pm$0.01} & \textbf{0.28{\scriptsize$\pm$0.16}} & 0.96{\scriptsize$\pm$0.01} & 0.85{\scriptsize$\pm$0.01} \\
+ViT-B/16 & 3 & 0.91{\scriptsize$\pm$0.01} & 0.82{\scriptsize$\pm$0.03} & 0.00{\scriptsize$\pm$0.00} & 1.00{\scriptsize$\pm$0.00} & 0.95{\scriptsize$\pm$0.06} & \textbf{0.00{\scriptsize$\pm$0.00}} & 0.92{\scriptsize$\pm$0.01} & 0.88{\scriptsize$\pm$0.07} \\
+\midrule \multicolumn{10}{l}{\textit{+ last-layer retraining (DFR~\cite{kirichenko2023dfr})}} \\
+TinyCNN & 1 & 0.90 & 0.83 & 0.00 & 0.99 & 0.88 & \textbf{0.00} & 0.83 & 0.86 \\
+VGG16 & 1 & 0.97 & 0.95 & 0.28 & 1.00 & 0.98 & \textbf{0.28} & 0.57 & 0.95 \\
+ResNet-50 & 3 & 0.99{\scriptsize$\pm$0.01} & 0.98{\scriptsize$\pm$0.02} & 0.83{\scriptsize$\pm$0.06} & 1.00{\scriptsize$\pm$0.00} & 0.99{\scriptsize$\pm$0.01} & \textbf{0.83{\scriptsize$\pm$0.06}} & 0.87{\scriptsize$\pm$0.11} & 0.95{\scriptsize$\pm$0.03} \\
+EfficientNet-B0 & 3 & 0.98{\scriptsize$\pm$0.01} & 0.97{\scriptsize$\pm$0.03} & 0.78{\scriptsize$\pm$0.07} & 1.00{\scriptsize$\pm$0.00} & 0.98{\scriptsize$\pm$0.01} & \textbf{0.78{\scriptsize$\pm$0.07}} & 0.97{\scriptsize$\pm$0.03} & 0.94{\scriptsize$\pm$0.00} \\
+ViT-B/16 & 3 & 0.95{\scriptsize$\pm$0.02} & 0.91{\scriptsize$\pm$0.04} & 0.31{\scriptsize$\pm$0.33} & 1.00{\scriptsize$\pm$0.00} & 0.99{\scriptsize$\pm$0.01} & \textbf{0.31{\scriptsize$\pm$0.33}} & 0.68{\scriptsize$\pm$0.23} & 0.95{\scriptsize$\pm$0.01} \\
+\midrule \multicolumn{10}{l}{\textit{Frozen foundation models}} \\
+CLIP zero-shot & 1 & 0.95 & 0.99 & 0.99 & 0.91 & 0.78 & \textbf{0.78} & 0.89 & 0.75 \\
+CLIP linear probe & 1 & 1.00 & 1.00 & 0.79 & 1.00 & 0.60 & \textbf{0.60} & 1.00 & 0.64 \\
+CLIP probe, group-bal. & 1 & 0.99 & 0.98 & 0.76 & 1.00 & 1.00 & \textbf{0.76} & 0.98 & 0.98 \\
+DINOv2 linear probe & 1 & 0.99 & 1.00 & 1.00 & 0.99 & 0.71 & \textbf{0.71} & 1.00 & 0.83 \\
+DINOv2 probe, group-bal. & 1 & 1.00 & 1.00 & 1.00 & 1.00 & 0.97 & \textbf{0.97} & 0.78 & 0.96 \\

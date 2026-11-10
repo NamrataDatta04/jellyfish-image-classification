@@ -1,0 +1,14 @@
+Majority class & 1 & 0.322 & 0.098 & 0.000 & 0.232 \\
+``Bluer = jellyfish'' rule & 1 & 0.587 & -- & -- & -- \\
+Raw pixels (SVM / LogReg) & 1 & 0.638 & 0.242 & 0.100 & 0.252 \\
+Colour hist.\ + LogReg & 1 & 0.570 & 0.283 & 0.100 & 0.409 \\
+HOG + SVM & 1 & 0.846 & 0.354 & 0.231 & 0.159 \\
+HOG + colour + SVM & 1 & 0.646 & 0.301 & 0.100 & 0.223 \\
+TinyCNN (scratch) & 3 & 0.938{\scriptsize$\pm$0.024} & 0.414{\scriptsize$\pm$0.032} & 0.151{\scriptsize$\pm$0.050} & 0.128{\scriptsize$\pm$0.032} \\
+VGG16 & 3 & 0.889{\scriptsize$\pm$0.109} & 0.731{\scriptsize$\pm$0.005} & 0.586{\scriptsize$\pm$0.080} & 0.126{\scriptsize$\pm$0.006} \\
+ResNet-50 & 3 & 0.940{\scriptsize$\pm$0.055} & 0.824{\scriptsize$\pm$0.034} & 0.564{\scriptsize$\pm$0.044} & 0.109{\scriptsize$\pm$0.040} \\
+EfficientNet-B0 & 3 & 0.983{\scriptsize$\pm$0.020} & 0.837{\scriptsize$\pm$0.026} & 0.615{\scriptsize$\pm$0.077} & 0.141{\scriptsize$\pm$0.067} \\
+ViT-B/16 & 3 & 0.944{\scriptsize$\pm$0.048} & 0.849{\scriptsize$\pm$0.007} & 0.687{\scriptsize$\pm$0.085} & 0.067{\scriptsize$\pm$0.018} \\
+CLIP zero-shot & 1 & 0.948 & 0.539 & 0.100 & 0.078 \\
+CLIP linear probe & 1 & 1.000 & 0.775 & 0.500 & 0.129 \\
+DINOv2 linear probe & 1 & 0.994 & 0.877 & 0.462 & 0.078 \\

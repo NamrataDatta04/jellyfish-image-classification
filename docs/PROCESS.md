@@ -2,8 +2,14 @@
 
 This file explains **everything that was done**, in order, so anyone can repeat it and get the same data,
 the same splits and the same kind of results. Every step below is done **by the code**, not by hand, except
-downloading the three datasets (Step 1). The numbers in this file come from running the code on
-30 September 2026 with seed 813.
+downloading the three datasets (Step 1). The data numbers in Steps 2–3 come from running the code on
+30 September 2026 with seed 813; the final results (Step 5B) come from the full runs of 10–13 October 2026.
+
+**Team:** Namrata Datta, Neesha Naimeen, Banupriya Thamilvanan.
+All three members contributed equally (see Step 10). The jellyfish, synthetic-bag and TrashCan datasets were
+collected and prepared by Neesha Naimeen and Banupriya Thamilvanan, and the FathomNet in-situ jellyfish
+by Namrata Datta; their first version of the preparation code is kept in
+`dataset_preparation_v1/` (see Step 3G).
 
 ---
 
@@ -30,6 +36,12 @@ with exactly these folder names:
 | `archive_jelly` | Jellyfish Image Dataset | kaggle.com/datasets/anshtanwar/jellyfish-types | 6 species, 224×224 photos, mostly aquarium / clear water |
 | `archive_trashcan` | TrashCan 1.0 (copy of the University of Minnesota dataset) | kaggle.com/datasets/mexwell/trashcan-1-0 | 7,212 frames from JAMSTEC deep-sea robot videos, 22 object classes with boxes and outlines (COCO format) |
 | `archive_Plastic` | Plastic – Paper – Garbage Bag Synthetic Images | kaggle.com/datasets/vencerlanz09/plastic-paper-garbage-bag-synthetic-images | 5,000 each of plastic, garbage and paper bags pasted on land photos |
+
+The original TrashCan 1.0 dataset is by Hong, Fulton and Sattar (University of Minnesota,
+conservancy.umn.edu/handle/11299/214865); its images come from the JAMSTEC J-EDI deep-sea video archive.
+A fourth source, **FathomNet** (MBARI, fathomnet.org), is not downloaded by hand: `fathomnet_download.py`
+fetches it in Step 5B and saves the crops in `Task/archive_fathomnet/`. FathomNet images are
+CC BY-NC-ND 4.0 and are never redistributed.
 
 After unzipping, the folders look like this (the code finds the rest by itself):
 
@@ -144,6 +156,27 @@ report **macro-F1**, **balanced accuracy** and **worst-class recall**, and we co
 
 ---
 
+### 3G. Who prepared the data, and the first version of the code
+
+The jellyfish, synthetic-bag and TrashCan datasets were collected, checked and cleaned by
+**Neesha Naimeen and Banupriya Thamilvanan**; the FathomNet in-situ jellyfish (Step 5B) were downloaded and
+prepared by **Namrata Datta**.
+Their first version of the preparation code is kept in
+`dataset_preparation_v1/` for transparency:
+
+* `prepare_data_v1.py` – the first version: jellyfish duplicate grouping and leak-free split (Step 3A),
+  500 synthetic bags (250 plastic + 250 garbage) as the only bag class, 300 paper bags as an unseen-object
+  test, and a background-swap set made with the COCO bag masks of the synthetic dataset.
+
+This version showed the land-vs-water shortcut (colour only: 91.4 % accuracy; only 0.3 % of the same bags
+still called "plastic" on a water background), which is why TrashCan became the main bag source.
+The current `prepare_data.py` keeps all of its jellyfish steps and adds TrashCan (3B), the 450-image
+synthetic sample (3C) and the new test sets (3E). `prepare_data_v1.py` needs the settings of the first
+`common.py` (`N_BAG_PER_FOLDER`, `N_OOD_PAPER`, `N_SUP`, `SUP_DIR`, `synthetic_water_background`), so it
+is kept as a record and is **not** part of the current pipeline.
+
+---
+
 ## Step 4 – Handling class imbalance
 
 Deep models (`train.py --imbalance ...`, compared in the `imbalance` stage with ResNet-50 on the fine task):
@@ -193,6 +226,29 @@ bags and jellyfish apart.
 
 ---
 
+## Step 5B – New experiments: shortcut benchmark, fixes and in-situ jellyfish
+
+These scripts were added after the first full runs showed near-perfect test scores. They are run from
+`COMP813_New_Experiments.ipynb` (or from a terminal) in this order:
+
+| Order | Script | What it does |
+|---|---|---|
+| F1 | `fathomnet_download.py` | downloads medusa images (true jellyfish and hydromedusae) from FathomNet, crops every box (+10 %), drops boxes < 48 px and near-copies from the same dive, and splits whole dives 60/20/20 → 740 crops from 332 dives |
+| A | `group_benchmark.py` | builds the **class × background benchmark** for validation and test: bags on ROV / grey / bright-blue backgrounds, jellyfish on clear water / grey / real ROV backgrounds (automatic jellyfish masks, 89 % accepted), object-free backgrounds, and FathomNet in-situ jellyfish; also runs the low-level cue test |
+| – | `train.py` | re-trains seeds 814 and 815 of ResNet-50, EfficientNet-B0 and ViT-B/16 (`run_all.py` keeps only seed 813 checkpoints, but DFR needs all three) |
+| B | `dfr.py` | scores every trained network on the benchmark and fits **last-layer retraining (DFR)**: a group-balanced logistic-regression head on frozen features, with the bright-blue bag group held out |
+| C | `foundation_probe.py` | CLIP zero-shot, CLIP and DINOv2 linear probes, and group-balanced probes |
+| F2 | `insitu_experiment.py` | same-camera test: ResNet-50 trained with Kaggle jellyfish, FathomNet jellyfish or both |
+| D | `stats.py` | worst-group tables, cluster-bootstrap confidence intervals, Holm-corrected McNemar tests, unseen-object scores, cost analysis |
+| E | `report_assets.py` | LaTeX tables, number macros and figures used in the report |
+
+**Main results (3 seeds):** pretrained networks reach 0.89–0.98 binary test macro-F1 but only 0.04–0.59
+worst-group accuracy; 90–99 % of empty ROV backgrounds are called "plastic bag"; the underwater
+augmentation makes worst-group accuracy worse (0.00–0.28); DFR raises ResNet-50 from 0.30 to 0.83
+(every seed improves) but is unreliable for the binary ViT; a group-balanced DINOv2 probe reaches 0.97.
+
+---
+
 ## Step 6 – Evaluation
 
 * **Metrics:** accuracy, macro-F1 (main metric), balanced accuracy, worst-class recall, ROC-AUC, expected
@@ -202,6 +258,9 @@ bags and jellyfish apart.
   brightness ×0.5–×1.5, Gaussian noise, FGSM adversarial attack, background swap, unseen objects (OOD AUROC).
 * **Explainability:** Grad-CAM; share of the heat on the bag outline (compare with the bag's area) and
   pointing-game hit rate, for the same bag on three backgrounds.
+* **Shortcut tests (Step 5B):** accuracy per class × background group, worst-group accuracy over the four
+  core groups, share of empty backgrounds called "plastic bag", cluster-bootstrap CIs, Holm-corrected
+  McNemar, unseen-object scores (MSP, energy, k-NN) and the expected cost of a clean-up robot.
 
 ---
 
@@ -214,7 +273,11 @@ bags and jellyfish apart.
 4. Run the section 4 cells (split between the three members), then section 5 (Grad-CAM + summary).
 5. Read `outputs/summary/key_numbers.md` and the figures in `outputs/summary/` and `outputs/figures/`.
 
-**On your own computer**
+**On a local GPU with Jupyter (what we used for the final runs)**
+1. Open `COMP813_Project_Local.ipynb`, run section 0, then the cells in order (original pipeline).
+2. Open `COMP813_New_Experiments.ipynb`, run section 0, then F1, A, B, C, F2 and D (Step 5B).
+
+**On your own computer (terminal)**
 ```
 pip install -r requirements.txt
 python prepare_data.py
@@ -233,8 +296,13 @@ The same seed (813) gives the same splits and crops. GPU results can differ very
 | 26 Sep | Read the brief and catalog; chose an Advanced 3-member project. Built the first pipeline (PyTorch, lab style) with synthetic bags; found the jellyfish duplicates/leakage and the land-vs-water shortcut (colour-only 91 %). Wrote the project plan. |
 | 26 Sep | Checked all 9 lab notebooks; added the lab methods (validation learning-rate search, grid heat-maps, rule and majority baselines, pixel softmax baseline, ROC curves). |
 | 27 Sep | Colab quick test passed on a GPU (all stages, pretrained models, CLIP). Fixed two plotting bugs. |
-| 28 Sep | Reviewed a group member's TensorFlow script (wrong labels, leakage, imbalance, no ablations); added VGG16 to our pipeline as her contribution. |
+| 28 Sep | Compared a team member's TensorFlow version of the pipeline with the PyTorch version and merged the useful parts; VGG16 was added to the model list from it. |
+| 26–30 Sep | Neesha Naimeen and Banupriya Thamilvanan collected and cleaned the three datasets and wrote the first preparation code (`dataset_preparation_v1/`). |
 | 30 Sep | Added **TrashCan 1.0** as the main plastic-bag source (real underwater bags): cleaning rules, video-level split, new background-swap and unseen-object tests, brightness test, cross-dataset study, class-balance check and **6 imbalance methods** (+ SMOTE for the classic model). Re-tested the whole pipeline on the real data. |
+
+| 10–11 Oct | Full runs of the original pipeline (3 seeds) on a local RTX 4050 GPU (Namrata); reduced-size runs by the other members to check the code. Namrata downloaded and prepared the FathomNet jellyfish. |
+| 11–12 Oct | Built the class × background benchmark; re-trained seeds 814/815; ran DFR, foundation-model probes and the in-situ experiment. |
+| 12–13 Oct | Statistics, cost analysis and figures; each member analysed the results independently and the findings were combined; wrote the report (CVPR template); Namrata recorded the video on the GPU computer. |
 
 **First look at the TrashCan data** (colour-histogram + logistic regression only, before any deep model):
 the colour shortcut is much weaker now that both classes are underwater (binary accuracy 57 % instead of 91 %),
@@ -252,3 +320,23 @@ undersampling 0.63, SMOTE 0.53). The full runs will give the final numbers.
   test sets are small (82 bags, 74 jellyfish) – hence 3 seeds, McNemar tests and careful wording.
 * The text-band cleaning removes some bags near the frame edges.
 * Background swap and underwater effects are simulations, not real photos.
+* Jellyfish masks for the benchmark are automatic (89 % accepted after a visual check), and FathomNet jellyfish
+  come from midwater, not from the seabed where the TrashCan bags lie.
+
+---
+
+## Step 10 – Team and contributions
+
+All three members contributed equally (one third each). The work was planned together and every major
+decision was agreed in group meetings. Each member ran the pipeline, analysed the results independently and
+brought separate findings to the group; these were compared and combined into the report.
+
+Only Namrata's computer had a suitable GPU, so the GPU-heavy training and the video recording were done by her,
+while Neesha and Banupriya took on the data preparation, the CPU-based methods and a larger share of the analysis.
+Each member implemented, trained and evaluated a separate set of models and experiments:
+
+| Member | Main contributions |
+|---|---|
+| Namrata Datta | project framing and research question; design of the class × background study; integration of all components into one reproducible pipeline (scripts, notebooks, three-seed runs); download and preparation of the FathomNet in-situ jellyfish; fine-tuning of the GPU-heavy networks (VGG16, ResNet-50, EfficientNet-B0, ViT-B/16; three seeds, learning-rate search, underwater-domain augmentation); last-layer retraining (DFR) and the FathomNet in-situ experiment; recording of the video; independent analysis of the results; writing and revision of the report |
+| Neesha Naimeen | collection and cleaning of the jellyfish, synthetic-bag and TrashCan data (with Banupriya); classical baselines (majority, colour rule, raw pixels, HOG / colour + SVM and logistic regression) and TinyCNN; class-imbalance methods; construction of the class × background benchmark; statistical analysis (bootstrap intervals, McNemar tests); independent analysis of the results; writing and revision of the report; review of the video |
+| Banupriya Thamilvanan | collection and cleaning of the jellyfish, synthetic-bag and TrashCan data (with Neesha) and documentation of the data preparation; CLIP and DINOv2 foundation models (zero-shot, linear and group-balanced probes); Grad-CAM explanations; robustness, cross-dataset, unseen-object, calibration and cost analyses; independent analysis of the results; writing and revision of the report; review of the video |

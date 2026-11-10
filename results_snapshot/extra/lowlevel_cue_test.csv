@@ -1,0 +1,3 @@
+condition,test_accuracy,test_auc
+no augmentation,0.9358974358974359,0.9886288727752143
+underwater augmentation on BOTH classes,0.8333333333333334,0.9283124588002637

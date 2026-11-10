@@ -1,0 +1,141 @@
+{
+ "jellyfish_duplicates": {
+  "images_total": 979,
+  "aug_copies": 581,
+  "near_duplicate_pairs": 163,
+  "exact_duplicate_pairs": 58,
+  "duplicate_pairs_with_different_species_label": 7,
+  "unique_photos(groups)": 369,
+  "provided_valid_test_images": 79,
+  "provided_valid_test_images_with_copy_in_provided_train": 8
+ },
+ "trashcan_official_split": {
+  "official_train_videos": 310,
+  "official_val_videos": 115,
+  "videos_in_both_official_train_and_val": 113
+ },
+ "trashcan_bag_cleaning": {
+  "boxes": 908,
+  "dropped_text_band_or_too_small": 385,
+  "dropped_near_copy_same_video": 114,
+  "kept": 409,
+  "videos": 39
+ },
+ "trashcan_bag_videos_per_split": {
+  "test": 12,
+  "train": 15,
+  "val": 12
+ },
+ "ood_cleaning": {
+  "boxes": 2210,
+  "dropped_text_band_or_too_small": 1210,
+  "dropped_near_copy_same_video": 137,
+  "kept": 276
+ },
+ "ood_counts": {
+  "trash_can": 60,
+  "animal_fish": 60,
+  "trash_container": 60,
+  "animal_starfish": 60,
+  "trash_bottle": 36
+ },
+ "class_balance": {
+  "binary": {
+   "train": {
+    "counts": {
+     "plastic_bag": 245,
+     "medusozoa": 589
+    },
+    "imbalance_ratio": 2.404081632653061,
+    "majority_share": 0.7062350119904077
+   },
+   "val": {
+    "counts": {
+     "plastic_bag": 82,
+     "medusozoa": 74
+    },
+    "imbalance_ratio": 1.1081081081081081,
+    "majority_share": 0.5256410256410257
+   },
+   "test": {
+    "counts": {
+     "plastic_bag": 82,
+     "medusozoa": 74
+    },
+    "imbalance_ratio": 1.1081081081081081,
+    "majority_share": 0.5256410256410257
+   },
+   "train_unique_photos_only": {
+    "counts": {
+     "plastic_bag": 245,
+     "medusozoa": 236
+    },
+    "imbalance_ratio": 1.0381355932203389,
+    "majority_share": 0.5093555093555093
+   }
+  },
+  "fine": {
+   "train": {
+    "counts": {
+     "plastic_bag": 245,
+     "barrel_jelly": 98,
+     "blue_jelly": 102,
+     "compass_jelly": 100,
+     "lions_mane_jelly": 96,
+     "mauve_stinger_jelly": 103,
+     "moon_jelly": 90
+    },
+    "imbalance_ratio": 2.7222222222222223,
+    "majority_share": 0.29376498800959233
+   },
+   "val": {
+    "counts": {
+     "plastic_bag": 82,
+     "barrel_jelly": 10,
+     "blue_jelly": 13,
+     "compass_jelly": 13,
+     "lions_mane_jelly": 15,
+     "mauve_stinger_jelly": 13,
+     "moon_jelly": 10
+    },
+    "imbalance_ratio": 8.2,
+    "majority_share": 0.5256410256410257
+   },
+   "test": {
+    "counts": {
+     "plastic_bag": 82,
+     "barrel_jelly": 10,
+     "blue_jelly": 13,
+     "compass_jelly": 12,
+     "lions_mane_jelly": 15,
+     "mauve_stinger_jelly": 14,
+     "moon_jelly": 10
+    },
+    "imbalance_ratio": 8.2,
+    "majority_share": 0.5256410256410257
+   },
+   "train_unique_photos_only": {
+    "counts": {
+     "plastic_bag": 245,
+     "barrel_jelly": 31,
+     "blue_jelly": 42,
+     "compass_jelly": 41,
+     "lions_mane_jelly": 45,
+     "mauve_stinger_jelly": 43,
+     "moon_jelly": 34
+    },
+    "imbalance_ratio": 7.903225806451613,
+    "majority_share": 0.5093555093555093
+   }
+  }
+ },
+ "split_sizes": {
+  "train": 1104,
+  "ood_other": 276,
+  "val": 246,
+  "test": 246,
+  "sup_orig": 82,
+  "sup_gray": 82,
+  "sup_blue": 82
+ }
+}

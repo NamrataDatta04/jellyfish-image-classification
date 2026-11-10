@@ -1,0 +1,84 @@
+family,a,b,only_a_correct,only_b_correct,p,p_holm,"significant (Holm, 5%)"
+ERM vs DFR (group benchmark),binary: EfficientNet-B0 + DFR (seed 813),EfficientNet-B0 (ERM),24,3,4.9233436584472656e-05,0.0005908012390136719,True
+ERM vs DFR (group benchmark),binary: EfficientNet-B0 + DFR (seed 814),EfficientNet-B0 (ERM),17,8,0.10775214433670044,0.3232564330101013,False
+ERM vs DFR (group benchmark),binary: EfficientNet-B0 + DFR (seed 815),EfficientNet-B0 (ERM),25,5,0.0003249142318964005,0.002599313855171204,True
+ERM vs DFR (group benchmark),binary: EfficientNet-B0 (underwater aug) + DFR (seed 813),EfficientNet-B0 (underwater aug) (ERM),53,4,5.910882894255564e-12,1.477720723563891e-10,True
+ERM vs DFR (group benchmark),binary: EfficientNet-B0 (underwater aug) + DFR (seed 814),EfficientNet-B0 (underwater aug) (ERM),37,2,2.841261448338628e-09,5.6825228966772556e-08,True
+ERM vs DFR (group benchmark),binary: EfficientNet-B0 (underwater aug) + DFR (seed 815),EfficientNet-B0 (underwater aug) (ERM),52,1,1.199040866595169e-14,3.836930773104541e-13,True
+ERM vs DFR (group benchmark),binary: ResNet-50 + DFR (seed 813),ResNet-50 (ERM),38,1,1.4551915228366852e-10,3.2014213502407074e-09,True
+ERM vs DFR (group benchmark),binary: ResNet-50 + DFR (seed 814),ResNet-50 (ERM),60,1,5.377642775528102e-17,1.9897278269453977e-15,True
+ERM vs DFR (group benchmark),binary: ResNet-50 + DFR (seed 815),ResNet-50 (ERM),57,2,6.144390551909851e-15,2.0276488821302507e-13,True
+ERM vs DFR (group benchmark),binary: ResNet-50 (underwater aug) + DFR (seed 813),ResNet-50 (underwater aug) (ERM),76,0,2.6469779601696886e-23,1.0852609636695723e-21,True
+ERM vs DFR (group benchmark),binary: ResNet-50 (underwater aug) + DFR (seed 814),ResNet-50 (underwater aug) (ERM),76,1,1.0323214044661785e-21,4.129285617864714e-20,True
+ERM vs DFR (group benchmark),binary: ResNet-50 (underwater aug) + DFR (seed 815),ResNet-50 (underwater aug) (ERM),54,4,3.169950413273171e-12,8.558866115837561e-11,True
+ERM vs DFR (group benchmark),binary: TinyCNN + DFR (seed 813),TinyCNN (ERM),41,4,9.334883088740753e-09,1.773627786860743e-07,True
+ERM vs DFR (group benchmark),binary: VGG16 + DFR (seed 813),VGG16 (ERM),22,5,0.0015137195587158203,0.010596036911010742,True
+ERM vs DFR (group benchmark),binary: ViT-B/16 + DFR (seed 813),ViT-B/16 (ERM),19,5,0.006610751152038574,0.039664506912231445,True
+ERM vs DFR (group benchmark),binary: ViT-B/16 + DFR (seed 814),ViT-B/16 (ERM),3,50,5.519584789226428e-12,1.4350920451988713e-10,True
+ERM vs DFR (group benchmark),binary: ViT-B/16 + DFR (seed 815),ViT-B/16 (ERM),15,0,6.103515625e-05,0.00067138671875,True
+ERM vs DFR (group benchmark),binary: ViT-B/16 (underwater aug) + DFR (seed 813),ViT-B/16 (underwater aug) (ERM),24,2,1.049041748046875e-05,0.0001468658447265625,True
+ERM vs DFR (group benchmark),binary: ViT-B/16 (underwater aug) + DFR (seed 814),ViT-B/16 (underwater aug) (ERM),6,2,0.2890625,0.578125,False
+ERM vs DFR (group benchmark),binary: ViT-B/16 (underwater aug) + DFR (seed 815),ViT-B/16 (underwater aug) (ERM),13,4,0.049041748046875,0.1961669921875,False
+ERM vs DFR (group benchmark),fine: EfficientNet-B0 + DFR (seed 813),EfficientNet-B0 (ERM),26,1,4.172325134277344e-07,6.67572021484375e-06,True
+ERM vs DFR (group benchmark),fine: EfficientNet-B0 + DFR (seed 814),EfficientNet-B0 (ERM),29,5,3.8558151572942734e-05,0.0005012559704482555,True
+ERM vs DFR (group benchmark),fine: EfficientNet-B0 + DFR (seed 815),EfficientNet-B0 (ERM),20,2,0.00012111663818359375,0.0010900497436523438,True
+ERM vs DFR (group benchmark),fine: EfficientNet-B0 (underwater aug) + DFR (seed 813),EfficientNet-B0 (underwater aug) (ERM),77,3,1.4128410298528223e-19,5.368795913440725e-18,True
+ERM vs DFR (group benchmark),fine: EfficientNet-B0 (underwater aug) + DFR (seed 814),EfficientNet-B0 (underwater aug) (ERM),76,6,1.5686991122453906e-16,5.647316804083406e-15,True
+ERM vs DFR (group benchmark),fine: EfficientNet-B0 (underwater aug) + DFR (seed 815),EfficientNet-B0 (underwater aug) (ERM),85,5,7.532842063484042e-20,2.9378084047587764e-18,True
+ERM vs DFR (group benchmark),fine: ResNet-50 + DFR (seed 813),ResNet-50 (ERM),41,3,1.6183321349672042e-09,3.398497483431129e-08,True
+ERM vs DFR (group benchmark),fine: ResNet-50 + DFR (seed 814),ResNet-50 (ERM),56,4,9.084503982403902e-13,2.5436611150730926e-11,True
+ERM vs DFR (group benchmark),fine: ResNet-50 + DFR (seed 815),ResNet-50 (ERM),33,5,4.255962267052382e-06,6.383943400578573e-05,True
+ERM vs DFR (group benchmark),fine: ResNet-50 (underwater aug) + DFR (seed 813),ResNet-50 (underwater aug) (ERM),75,7,1.7292396771428031e-15,6.052338869999811e-14,True
+ERM vs DFR (group benchmark),fine: ResNet-50 (underwater aug) + DFR (seed 814),ResNet-50 (underwater aug) (ERM),58,3,3.2857397358476703e-14,9.85721920754301e-13,True
+ERM vs DFR (group benchmark),fine: ResNet-50 (underwater aug) + DFR (seed 815),ResNet-50 (underwater aug) (ERM),46,2,8.363087999896379e-12,2.007141119975131e-10,True
+ERM vs DFR (group benchmark),fine: ResNet-50 [scratch] + DFR (seed 813),ResNet-50 [scratch] (ERM),49,39,0.3373990368531198,0.578125,False
+ERM vs DFR (group benchmark),fine: TinyCNN + DFR (seed 813),TinyCNN (ERM),46,25,0.01699465257343638,0.0849732628671819,False
+ERM vs DFR (group benchmark),fine: VGG16 + DFR (seed 813),VGG16 (ERM),57,6,1.6395687108330947e-11,3.771008034916118e-10,True
+ERM vs DFR (group benchmark),fine: ViT-B/16 + DFR (seed 813),ViT-B/16 (ERM),21,2,6.604194641113281e-05,0.00067138671875,True
+ERM vs DFR (group benchmark),fine: ViT-B/16 + DFR (seed 814),ViT-B/16 (ERM),49,0,3.552713678800501e-15,1.2079226507921703e-13,True
+ERM vs DFR (group benchmark),fine: ViT-B/16 + DFR (seed 815),ViT-B/16 (ERM),27,0,1.4901161193847656e-08,2.682209014892578e-07,True
+ERM vs DFR (group benchmark),fine: ViT-B/16 (underwater aug) + DFR (seed 813),ViT-B/16 (underwater aug) (ERM),28,1,1.1175870895385742e-07,1.8998980522155762e-06,True
+ERM vs DFR (group benchmark),fine: ViT-B/16 (underwater aug) + DFR (seed 814),ViT-B/16 (underwater aug) (ERM),51,1,2.353672812205332e-14,7.296385717836529e-13,True
+ERM vs DFR (group benchmark),fine: ViT-B/16 (underwater aug) + DFR (seed 815),ViT-B/16 (underwater aug) (ERM),50,1,4.618527782440651e-14,1.3393730569077889e-12,True
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,CLIP ViT-B/32 probe + group-balanced,2,0,0.5,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,CLIP ViT-B/32 zero-shot,8,0,0.0078125,0.1015625,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,DINOv2 ViT-B/14 linear probe,1,0,1.0,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,DINOv2 ViT-B/14 probe + group-balanced,0,0,1.0,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,EfficientNet-B0 + DFR,2,0,0.5,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,EfficientNet-B0,0,0,1.0,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,EfficientNet-B0 (underwater aug) + DFR,4,0,0.125,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,EfficientNet-B0 (underwater aug),2,0,0.5,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,ResNet-50 + DFR,3,0,0.25,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,ResNet-50,3,0,0.25,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,ResNet-50 (underwater aug) + DFR,3,0,0.25,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,ResNet-50 (underwater aug),19,0,3.814697265625e-06,7.62939453125e-05,True
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,TinyCNN + DFR,15,0,6.103515625e-05,0.00115966796875,True
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,TinyCNN,14,0,0.0001220703125,0.002197265625,True
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,VGG16 + DFR,4,0,0.125,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,VGG16,1,0,1.0,1.0,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,ViT-B/16 + DFR,10,0,0.001953125,0.029296875,True
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,ViT-B/16,9,0,0.00390625,0.0546875,False
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,ViT-B/16 (underwater aug) + DFR,12,0,0.00048828125,0.0078125,True
+"best vs others, normal test (binary)",CLIP ViT-B/32 linear probe,ViT-B/16 (underwater aug),14,0,0.0001220703125,0.002197265625,True
+"best vs others, normal test (fine)",ViT-B/16 + DFR,CLIP ViT-B/32 linear probe,1,0,1.0,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,CLIP ViT-B/32 probe + group-balanced,4,0,0.125,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,CLIP ViT-B/32 zero-shot,25,0,5.960464477539063e-08,1.1324882507324219e-06,True
+"best vs others, normal test (fine)",ViT-B/16 + DFR,DINOv2 ViT-B/14 linear probe,0,0,1.0,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,DINOv2 ViT-B/14 probe + group-balanced,0,0,1.0,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,EfficientNet-B0 + DFR,1,0,1.0,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,EfficientNet-B0,3,0,0.25,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,EfficientNet-B0 (underwater aug) + DFR,2,0,0.5,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,EfficientNet-B0 (underwater aug),7,0,0.015625,0.21875,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ResNet-50 + DFR,0,0,1.0,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ResNet-50,4,0,0.125,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ResNet-50 (underwater aug) + DFR,3,0,0.25,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ResNet-50 (underwater aug),15,0,6.103515625e-05,0.00091552734375,True
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ResNet-50 [scratch] + DFR,31,0,9.313225746154785e-10,1.955777406692505e-08,True
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ResNet-50 [scratch],56,0,2.7755575615628914e-17,6.106226635438361e-16,True
+"best vs others, normal test (fine)",ViT-B/16 + DFR,TinyCNN + DFR,16,0,3.0517578125e-05,0.00048828125,True
+"best vs others, normal test (fine)",ViT-B/16 + DFR,TinyCNN,28,0,7.450580596923828e-09,1.4901161193847656e-07,True
+"best vs others, normal test (fine)",ViT-B/16 + DFR,VGG16 + DFR,3,0,0.25,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,VGG16,18,0,7.62939453125e-06,0.00012969970703125,True
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ViT-B/16,0,0,1.0,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ViT-B/16 (underwater aug) + DFR,3,0,0.25,1.0,False
+"best vs others, normal test (fine)",ViT-B/16 + DFR,ViT-B/16 (underwater aug),21,0,9.5367431640625e-07,1.71661376953125e-05,True

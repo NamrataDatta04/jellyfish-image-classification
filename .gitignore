@@ -1,6 +1,13 @@
-outputs/checkpoints/
-outputs/sup/
-__pycache__/
+# data, results and weights produced by the pipeline (large / third-party licensed)
+outputs/
+Outputs/
+Task/
 *.pt
-venv/
+*.pth
+*.zip
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
 .venv/
+venv/

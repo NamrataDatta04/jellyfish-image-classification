@@ -1,0 +1,149 @@
+split,path,fine_label,area,ok,reason
+val,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/07.jpg,barrel_jelly,0.26096141581632654,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/10.jpg,barrel_jelly,0.17629942602040816,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/20.jpg,barrel_jelly,0.5105628188775511,False,too big
+val,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/25.jpg,barrel_jelly,0.16472018494897958,False,leaks into background
+val,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/32.JPG,barrel_jelly,0.18893494897959184,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/36.jpg,barrel_jelly,0.3341438137755102,False,leaks into background
+val,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/39.JPG,barrel_jelly,0.15571189413265307,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/48.jpg,barrel_jelly,0.16489955357142858,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/08.jpg,blue_jelly,0.10861766581632654,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/18.jpg,blue_jelly,0.1698421556122449,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/26.jpg,blue_jelly,0.06652582908163265,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/40.jpg,blue_jelly,0.44003109056122447,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/44.jpg,blue_jelly,0.0758529974489796,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/45.jpg,blue_jelly,0.13715720663265307,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/46.jpg,blue_jelly,0.09761639030612244,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/53.jpg,blue_jelly,0.08079559948979592,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/59.jpg,blue_jelly,0.07465720663265306,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/60.jpg,blue_jelly,0.060825892857142856,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/62.jpg,blue_jelly,0.11258370535714286,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/06.jpg,compass_jelly,0.07073102678571429,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/29.jpg,compass_jelly,0.130859375,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/31.jpg,compass_jelly,0.07894212372448979,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/39.jpg,compass_jelly,0.13271285076530612,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/42.jpg,compass_jelly,0.10909598214285714,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/45.jpg,compass_jelly,0.15555245535714285,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/50.jpg,compass_jelly,0.07005341198979592,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/51.jpg,compass_jelly,0.2530094068877551,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/57.jpg,compass_jelly,0.13749601403061223,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/66.jpg,compass_jelly,0.36698820153061223,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/15.jpg,lions_mane_jelly,0.2600845025510204,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/16.jpg,lions_mane_jelly,0.1878985969387755,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/22.jpg,lions_mane_jelly,0.2108577806122449,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/23.jpg,lions_mane_jelly,0.09801498724489796,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/30.jpg,lions_mane_jelly,0.09494579081632654,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/34.jpg,lions_mane_jelly,0.3467594068877551,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/39.jpg,lions_mane_jelly,0.15563217474489796,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/41.jpg,lions_mane_jelly,0.06433354591836735,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/59.jpg,lions_mane_jelly,0.07459741709183673,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/60.jpg,lions_mane_jelly,0.30781648596938777,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/73.jpeg,lions_mane_jelly,0.07380022321428571,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/75.jpeg,lions_mane_jelly,0.09263392857142858,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/20.jpg,mauve_stinger_jelly,0.3850845025510204,False,leaks into background
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/22.jpg,mauve_stinger_jelly,0.20673230229591838,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/23.jpg,mauve_stinger_jelly,0.4252830038265306,False,leaks into background
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/39.jpg,mauve_stinger_jelly,0.11495535714285714,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/44.jpg,mauve_stinger_jelly,0.35843829719387754,False,leaks into background
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/51.jpg,mauve_stinger_jelly,0.1786511479591837,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/54.jpg,mauve_stinger_jelly,0.07948022959183673,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/56.JPG,mauve_stinger_jelly,0.1820392219387755,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/65.jpg,mauve_stinger_jelly,0.17103794642857142,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/72.jpg,mauve_stinger_jelly,0.2717833227040816,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/03.jpg,moon_jelly,0.27965561224489793,False,leaks into background
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/06.jpg,moon_jelly,0.13285235969387754,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/14.jpg,moon_jelly,0.20764907525510204,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/17.jpg,moon_jelly,0.031548947704081634,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/25.jpg,moon_jelly,0.23385682397959184,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/38.jpg,moon_jelly,0.08512037627551021,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/49.jpg,moon_jelly,0.32132892219387754,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/51.jpg,moon_jelly,0.39475047831632654,True,ok
+val,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/54.jpg,moon_jelly,0.2034638073979592,True,ok
+val,Task/archive_jelly/Train_Test_Valid/valid/barrel_jellyfish/26.JPG,barrel_jelly,0.04185267857142857,True,ok
+val,Task/archive_jelly/Train_Test_Valid/valid/blue_jellyfish/05.jpg,blue_jelly,0.09966916454081633,True,ok
+val,Task/archive_jelly/Train_Test_Valid/valid/compass_jellyfish/46.jpg,compass_jelly,0.21578045280612246,True,ok
+val,Task/archive_jelly/Train_Test_Valid/valid/compass_jellyfish/67.jpg,compass_jelly,0.09841358418367346,True,ok
+val,Task/archive_jelly/Train_Test_Valid/valid/lions_mane_jellyfish/19.jpg,lions_mane_jelly,0.17131696428571427,True,ok
+val,Task/archive_jelly/Train_Test_Valid/valid/lions_mane_jellyfish/66.jpg,lions_mane_jelly,0.10758131377551021,True,ok
+val,Task/archive_jelly/Train_Test_Valid/test/barrel_jellyfish/08.jpg,barrel_jelly,0.3092514349489796,True,ok
+val,Task/archive_jelly/Train_Test_Valid/test/blue_jellyfish/33.jpeg,blue_jelly,0.2764469068877551,True,ok
+val,Task/archive_jelly/Train_Test_Valid/test/compass_jellyfish/41.jpg,compass_jelly,0.10797991071428571,True,ok
+val,Task/archive_jelly/Train_Test_Valid/test/lions_mane_jellyfish/58.jpg,lions_mane_jelly,0.30458785076530615,True,ok
+val,Task/archive_jelly/Train_Test_Valid/test/mauve_stinger_jellyfish/48.jpg,mauve_stinger_jelly,0.15270248724489796,True,ok
+val,Task/archive_jelly/Train_Test_Valid/test/mauve_stinger_jellyfish/61.jpg,mauve_stinger_jelly,0.1388313137755102,True,ok
+val,Task/archive_jelly/Train_Test_Valid/test/mauve_stinger_jellyfish/69.jpg,mauve_stinger_jelly,0.09261399872448979,True,ok
+val,Task/archive_jelly/Train_Test_Valid/test/Moon_jellyfish/48.jpg,moon_jelly,0.2941047512755102,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/11.jpg,barrel_jelly,0.11324139030612244,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/13.jpg,barrel_jelly,0.09105947066326531,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/14.jpg,barrel_jelly,0.3188376913265306,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/18.jpg,barrel_jelly,0.28226642219387754,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/31.jpg,barrel_jelly,0.2727200255102041,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/34.jpg,barrel_jelly,0.406429368622449,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/45.jpg,barrel_jelly,0.17400749362244897,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/barrel_jellyfish/49.jpg,barrel_jelly,0.2802734375,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/07.jpg,blue_jelly,0.17556202168367346,False,leaks into background
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/11.jpg,blue_jelly,0.10072544642857142,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/36.jpg,blue_jelly,0.401187818877551,False,leaks into background
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/38.jpg,blue_jelly,0.14760044642857142,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/56.jpg,blue_jelly,0.08388472576530612,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/58.jpg,blue_jelly,0.2642299107142857,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/63.jpg,blue_jelly,0.10086495535714286,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/64.jpg,blue_jelly,0.2308075573979592,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/68.png,blue_jelly,0.3516422193877551,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/blue_jellyfish/69.jpg,blue_jelly,0.10473134566326531,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/02.jpg,compass_jelly,0.1716358418367347,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/08.jpg,compass_jelly,0.09414859693877552,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/09.jpg,compass_jelly,0.1283282844387755,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/10.jpg,compass_jelly,0.2767857142857143,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/22.JPG,compass_jelly,0.3190170599489796,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/47.jpg,compass_jelly,0.05287388392857143,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/62.jpg,compass_jelly,0.10046635841836735,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/68.jpeg,compass_jelly,0.5031688456632653,False,too big
+test,Task/archive_jelly/Train_Test_Valid/Train/compass_jellyfish/71.jpeg,compass_jelly,0.08336654974489796,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/03.jpg,lions_mane_jelly,0.22443000637755103,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/04.jpg,lions_mane_jelly,0.19549186862244897,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/06.jpg,lions_mane_jelly,0.2428252551020408,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/07.jpg,lions_mane_jelly,0.20930325255102042,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/17.jpg,lions_mane_jelly,0.2525111607142857,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/21.jpg,lions_mane_jelly,0.15086894132653061,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/32.jpg,lions_mane_jelly,0.35062579719387754,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/43.jpg,lions_mane_jelly,0.17998644770408162,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/44.jpg,lions_mane_jelly,0.21599968112244897,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/49.jpg,lions_mane_jelly,0.18243781887755103,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/52.jpg,lions_mane_jelly,0.10052614795918367,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/lions_mane_jellyfish/57.jpg,lions_mane_jelly,0.1539580676020408,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/05.jpg,mauve_stinger_jelly,0.12406329719387756,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/12.jpg,mauve_stinger_jelly,0.07818478954081633,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/15.jpg,mauve_stinger_jelly,0.21466438137755103,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/25.jpg,mauve_stinger_jelly,0.14403300382653061,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/35.JPG,mauve_stinger_jelly,0.2770248724489796,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/46.jpg,mauve_stinger_jelly,0.07922114158163265,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/58.jpg,mauve_stinger_jelly,0.19282126913265307,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/66.JPG,mauve_stinger_jelly,0.12155213647959184,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/mauve_stinger_jellyfish/71.jpg,mauve_stinger_jelly,0.048329878826530615,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/04.jpg,moon_jelly,0.34384964923469385,False,leaks into background
+test,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/35.jpg,moon_jelly,0.1524234693877551,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/36.jpg,moon_jelly,0.441585618622449,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/42.jpg,moon_jelly,0.23088727678571427,False,leaks into background
+test,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/43.jpg,moon_jelly,0.12709263392857142,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/52.JPG,moon_jelly,0.10499043367346939,False,leaks into background
+test,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/56.jpg,moon_jelly,0.21227279974489796,True,ok
+test,Task/archive_jelly/Train_Test_Valid/Train/Moon_jellyfish/61.jpg,moon_jelly,0.16252790178571427,True,ok
+test,Task/archive_jelly/Train_Test_Valid/valid/barrel_jellyfish/19.jpg,barrel_jelly,0.35365513392857145,False,leaks into background
+test,Task/archive_jelly/Train_Test_Valid/valid/barrel_jellyfish/51.jpg,barrel_jelly,0.20748963647959184,True,ok
+test,Task/archive_jelly/Train_Test_Valid/valid/blue_jellyfish/16.jpg,blue_jelly,0.2090640943877551,True,ok
+test,Task/archive_jelly/Train_Test_Valid/valid/lions_mane_jellyfish/28.jpg,lions_mane_jelly,0.454280931122449,True,ok
+test,Task/archive_jelly/Train_Test_Valid/valid/mauve_stinger_jellyfish/10.jpg,mauve_stinger_jelly,0.29848931760204084,False,leaks into background
+test,Task/archive_jelly/Train_Test_Valid/valid/mauve_stinger_jellyfish/19.jpg,mauve_stinger_jelly,0.19991629464285715,True,ok
+test,Task/archive_jelly/Train_Test_Valid/valid/mauve_stinger_jellyfish/27.jpg,mauve_stinger_jelly,0.11650988520408163,True,ok
+test,Task/archive_jelly/Train_Test_Valid/valid/mauve_stinger_jellyfish/70.jpg,mauve_stinger_jelly,0.24069276147959184,True,ok
+test,Task/archive_jelly/Train_Test_Valid/valid/Moon_jellyfish/09.jpg,moon_jelly,0.1477997448979592,True,ok
+test,Task/archive_jelly/Train_Test_Valid/test/blue_jellyfish/10.jpg,blue_jelly,0.09677933673469388,True,ok
+test,Task/archive_jelly/Train_Test_Valid/test/blue_jellyfish/14.jpg,blue_jelly,0.18590561224489796,True,ok
+test,Task/archive_jelly/Train_Test_Valid/test/compass_jellyfish/20.jpg,compass_jelly,0.26078204719387754,True,ok
+test,Task/archive_jelly/Train_Test_Valid/test/compass_jellyfish/28.JPG,compass_jelly,0.2567761479591837,True,ok
+test,Task/archive_jelly/Train_Test_Valid/test/compass_jellyfish/69.png,compass_jelly,0.05628188775510204,True,ok
+test,Task/archive_jelly/Train_Test_Valid/test/lions_mane_jellyfish/14.jpg,lions_mane_jelly,0.20452008928571427,True,ok
+test,Task/archive_jelly/Train_Test_Valid/test/lions_mane_jellyfish/33.jpg,lions_mane_jelly,0.15571189413265307,True,ok
+test,Task/archive_jelly/Train_Test_Valid/test/mauve_stinger_jellyfish/14.jpg,mauve_stinger_jelly,0.39359454719387754,False,leaks into background
+test,Task/archive_jelly/Train_Test_Valid/test/Moon_jellyfish/19.jpg,moon_jelly,0.3524593431122449,True,ok

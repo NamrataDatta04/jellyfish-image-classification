@@ -493,7 +493,10 @@ def gradcam_layer(model, name):
     if name in ("efficientnet_b0", "mobilenet_v3_large", "convnext_tiny"):
         return model.features[-1]
     if name == "vit_b_16":
-        return model.encoder.layers[-1]
+        # ln_1 of the last block: torchvision's ViT passes only the class token of the LAST block's output to the
+        # head, so the patch tokens of encoder.layers[-1] get zero gradient and Grad-CAM would be empty.
+        # The input of the last self-attention still feeds the class token, so its patch tokens get gradients.
+        return model.encoder.layers[-1].ln_1
     raise ValueError(name)
 
 
