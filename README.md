@@ -2,7 +2,7 @@
 
 **Diagnosing and mitigating source shortcuts in underwater plastic-bag vs. jellyfish classification**
 
-[![Live demo](https://img.shields.io/badge/live_demo-try_the_model-0f6e78)](https://namratadatta04.github.io/jellyfish-image-classification/)
+[![Live demo](https://img.shields.io/badge/live_demo-try_the_model-0f6e78)]
 ![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB)
 ![PyTorch](https://img.shields.io/badge/PyTorch-torchvision-ee4c2c)
 ![Models](https://img.shields.io/badge/models-CNN%20%C2%B7%20ViT%20%C2%B7%20CLIP%20%C2%B7%20DINOv2-555)
