@@ -15,7 +15,7 @@ Needs only numpy, onnx, onnxruntime, Pillow and scikit-learn (no PyTorch, no GPU
 
 Run from the repository root (needs the benchmark crops written by group_benchmark.py):
     python demo/export_demo_model.py --ckpt outputs/checkpoints/binary_efficientnet_b0_pt_ft_aug-standard_s813.pt \
-                                     --groups_csv outputs/groups.csv --outputs_dir outputs
+                                     --groups_csv outputs/groups.csv --outputs_dir outputs --task_dir ../Task
 Writes docs/model/features.onnx and docs/model/heads.json.
 """
 
@@ -206,11 +206,14 @@ def fit_group_balanced_head(X, y, groups, clusters, Cs=(0.01, 0.03, 0.1, 0.3, 1.
     return sc, clf, best[1]
 
 
-def remap(path, outputs_dir):
-    """groups.csv stores absolute paths from the training machine; point them at this machine's outputs folder."""
+def remap(path, outputs_dir, task_dir=None):
+    """groups.csv stores absolute paths from the training machine; point them at this machine's folders."""
     p = str(path).replace("\\", "/")
-    i = p.lower().find("/outputs/")
-    return str(Path(outputs_dir) / p[i + len("/outputs/"):]) if i >= 0 else p
+    for key, base in (("/outputs/", outputs_dir), ("/task/", task_dir)):
+        i = p.lower().find(key)
+        if i >= 0 and base:
+            return str(Path(base) / p[i + len(key):])
+    return p
 
 
 def main():
@@ -218,6 +221,7 @@ def main():
     ap.add_argument("--ckpt", required=True)
     ap.add_argument("--groups_csv", required=True)
     ap.add_argument("--outputs_dir", required=True, help="folder that holds crops/ (remaps the paths in groups.csv)")
+    ap.add_argument("--task_dir", default=None, help="folder that holds the raw datasets (remaps .../Task/... paths)")
     ap.add_argument("--out", default=str(ROOT / "docs" / "model"))
     args = ap.parse_args()
     np.random.seed(SEED)
@@ -233,7 +237,7 @@ def main():
     w_erm, b_erm = sd["classifier.1.weight"].astype(float), sd["classifier.1.bias"].astype(float)
 
     g = pd.read_csv(args.groups_csv)
-    g["path"] = [remap(p, args.outputs_dir) for p in g.path]
+    g["path"] = [remap(p, args.outputs_dir, args.task_dir) for p in g.path]
     rw = g[(g.set == "gval") & g.group.isin(DFR_GROUPS) & (g.y_bin >= 0)].reset_index(drop=True)
     te = g[(g.set == "gtest") & g.group.isin(SHOW_GROUPS)].reset_index(drop=True)
     print(f"DFR fitting set: {len(rw)} images | benchmark test groups: {len(te)} images")

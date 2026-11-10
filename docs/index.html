@@ -115,6 +115,8 @@
       <li><strong>Upload a plastic bag in clear or bright water.</strong> This is the case the standard model gets wrong most
         often; the DFR version is right far more often.</li>
     </ul>
+    <p>The fix helps but does not remove the shortcut: both versions still give confident answers for empty
+      backgrounds, which is why the project also studies rejecting images with no object.</p>
     <p>This is the <em>source shortcut</em> the project measures: in every public dataset we could combine, bags and
       jellyfish come from different cameras and different water, so a network can score highly by recognising the
       background instead of the object.</p>
@@ -123,7 +125,9 @@
   <section>
     <h2>How this model scores on the background benchmark</h2>
     <p>Accuracy on held-out test images where the object and the background are mixed and matched (seed 813).
-      “Worst group” is the lowest of the first four rows.</p>
+      “Worst group” is the lowest of the first four rows. The DFR layer was re-fitted for this demo with the same
+      recipe, so its numbers differ slightly from the report (for this seed the report gives 0.76 worst-group
+      accuracy after DFR; the mean over three seeds is 0.78).</p>
     <div class="table-wrap"><table id="acc">
       <thead><tr><th>Test group</th><th class="n">Images</th><th class="n">Standard</th><th class="n">After DFR</th></tr></thead>
       <tbody></tbody>
